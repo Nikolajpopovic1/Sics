@@ -9,7 +9,7 @@ using namespace Rcpp;
 #include <string>
 #include <fstream>
 #include <vector>
-#include "src/sics_implementation/importoslav.h"
+#include "importoslav.h"
 
 
 
