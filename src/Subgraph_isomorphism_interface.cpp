@@ -2,6 +2,16 @@
 #include <vector>
 #include <string>
 using namespace Rcpp;
+#include <Rcpp.h>
+
+#include <iostream>
+#include <cstdint>
+#include <string>
+#include <fstream>
+#include <vector>
+#include "sics_implementation/importoslav.h"
+
+
 
 // This is a simple function using Rcpp that creates an R list
 // containing a character vector and a numeric vector.
