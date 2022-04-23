@@ -1,5 +1,6 @@
 #include <Rcpp.h>
 #include <vector>
+#include <string>
 using namespace Rcpp;
 
 // This is a simple function using Rcpp that creates an R list
@@ -16,7 +17,19 @@ using namespace Rcpp;
 //
 
 // [[Rcpp::export]]
-std::vector<std::vector<int>> rcpp_hello() {
+std::vector<std::vector<int>> subgraph_isomorphism_interface(
+    std::vector<int> pattern,
+    std::vector<int> match,
+    std::string algorithm,
+    std::string direction,
+    std::vector<std::vector<std::string>> vertex_atributes_g1,
+    std::vector<std::vector<std::string>> vertex_atributes_g2,
+    std::string type_graph,
+    std::string constraint,
+    int pattern_vertex,
+    int match_vertex,
+    bool degreesorted
+) {
   CharacterVector x = CharacterVector::create("foo", "bar");
   NumericVector y   = NumericVector::create(0.0, 1.0);
   List z            = List::create(x, y);

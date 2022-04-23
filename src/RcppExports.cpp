@@ -10,19 +10,30 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP _Sics_rcpp_hello() {
+// subgraph_isomorphism_interface
+std::vector<std::vector<int>> subgraph_isomorphism_interface(std::vector<int> pattern, std::vector<int> match, std::string algorithm, std::string direction, std::vector<std::vector<std::string>> vertex_atributes_g1, std::vector<std::vector<std::string>> vertex_atributes_g2, std::string type_graph, std::string constraint, int pattern_vertex, int match_vertex, bool degreesorted);
+RcppExport SEXP _Sics_subgraph_isomorphism_interface(SEXP patternSEXP, SEXP matchSEXP, SEXP algorithmSEXP, SEXP directionSEXP, SEXP vertex_atributes_g1SEXP, SEXP vertex_atributes_g2SEXP, SEXP type_graphSEXP, SEXP constraintSEXP, SEXP pattern_vertexSEXP, SEXP match_vertexSEXP, SEXP degreesortedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpp_hello());
+    Rcpp::traits::input_parameter< std::vector<int> >::type pattern(patternSEXP);
+    Rcpp::traits::input_parameter< std::vector<int> >::type match(matchSEXP);
+    Rcpp::traits::input_parameter< std::string >::type algorithm(algorithmSEXP);
+    Rcpp::traits::input_parameter< std::string >::type direction(directionSEXP);
+    Rcpp::traits::input_parameter< std::vector<std::vector<std::string>> >::type vertex_atributes_g1(vertex_atributes_g1SEXP);
+    Rcpp::traits::input_parameter< std::vector<std::vector<std::string>> >::type vertex_atributes_g2(vertex_atributes_g2SEXP);
+    Rcpp::traits::input_parameter< std::string >::type type_graph(type_graphSEXP);
+    Rcpp::traits::input_parameter< std::string >::type constraint(constraintSEXP);
+    Rcpp::traits::input_parameter< int >::type pattern_vertex(pattern_vertexSEXP);
+    Rcpp::traits::input_parameter< int >::type match_vertex(match_vertexSEXP);
+    Rcpp::traits::input_parameter< bool >::type degreesorted(degreesortedSEXP);
+    rcpp_result_gen = Rcpp::wrap(subgraph_isomorphism_interface(pattern, match, algorithm, direction, vertex_atributes_g1, vertex_atributes_g2, type_graph, constraint, pattern_vertex, match_vertex, degreesorted));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_Sics_rcpp_hello", (DL_FUNC) &_Sics_rcpp_hello, 0},
+    {"_Sics_subgraph_isomorphism_interface", (DL_FUNC) &_Sics_subgraph_isomorphism_interface, 11},
     {NULL, NULL, 0}
 };
 

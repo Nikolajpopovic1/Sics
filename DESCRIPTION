@@ -10,4 +10,4 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: Rcpp (>= 1.0.8.3)
-LinkingTo: Rcpp
+LinkingTo: Rcpp, igraph
