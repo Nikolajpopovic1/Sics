@@ -1,4 +1,5 @@
 #include <Rcpp.h>
+#include <vector>
 using namespace Rcpp;
 
 // This is a simple function using Rcpp that creates an R list
