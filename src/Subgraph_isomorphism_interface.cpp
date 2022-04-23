@@ -9,7 +9,7 @@ using namespace Rcpp;
 #include <string>
 #include <fstream>
 #include <vector>
-#include "importoslav.h"
+#include "modString.h"
 
 
 
