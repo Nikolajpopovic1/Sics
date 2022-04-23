@@ -1,2 +1,4 @@
-useDynLib(Sics)
 exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
+useDynLib(Sics, .registration = TRUE)
+
