@@ -1,0 +1,4 @@
+CXX = g++
+CXX_STD = CXX17
+CXX_FLAGS = -std=c++17 -O3 -march=native -DNDEBUG
+PKG_LIBS= -lm -lstdc++ -lgomp -lpthread -fconcepts

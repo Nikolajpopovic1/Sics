@@ -1,0 +1,38 @@
+
+#include <unordered_set>
+#include <string>
+std::unordered_set<std::string> valid_alg_args = {"backjumping_bitset_degreeprune_ind","backjumping_bitset_degreesequenceprune_ind","backjumping_degreeprune_ind","backjumping_degreesequenceprune_ind"
+,"backjumping_ind","backmarking_degreeprune_ind","backmarking_ind","backtracking_adjacentconsistency_forwardcount_ind","backtracking_adjacentconsistency_ind","backtracking_adjacentconsistency_precount_ind"
+,"backtracking_bitset_degreeprune_ind","backtracking_bitset_degreesequenceprune_ind","backtracking_degreeprune_adjacentconsistency_forwardcount_ind","backtracking_degreeprune_adjacentconsistency_ind"
+,"backtracking_degreeprune_adjacentconsistency_precount_ind","backtracking_degreeprune_ind","backtracking_degreesequenceprune_ind"
+,"backtracking_forwardcount_ind","backtracking_ind","backtracking_parent_adjacentconsistency_forwardcount_ind","backtracking_parent_adjacentconsistency_ind"
+,"backtracking_parent_adjacentconsistency_precount_ind","backtracking_parent_degreeprune_adjacentconsistency_forwardcount_ind","backtracking_parent_degreeprune_adjacentconsistency_ind"
+,"backtracking_parent_degreeprune_adjacentconsistency_precount_ind","backtracking_parent_degreeprune_ind","backtracking_parent_forwardcount_ind"
+,"backtracking_parent_ind","conflictbackjumping_degreeprune_ind","conflictbackjumping_degreesequenceprune_ind","conflictbackjumping_ind"
+,"forwardchecking_bitset_degreeprune_ac1_ind","forwardchecking_bitset_degreeprune_countingalldifferent_ind"
+,"forwardchecking_bitset_degreeprune_ind","forwardchecking_bitset_degreesequenceprune_ac1_ind","forwardchecking_bitset_degreesequenceprune_countingalldifferent_ind"
+,"forwardchecking_bitset_degreesequenceprune_ind","forwardchecking_bitset_mrv_degreeprune_ac1_ind","forwardchecking_bitset_mrv_degreeprune_countingalldifferent_ind"
+,"forwardchecking_bitset_mrv_degreeprune_ind","forwardchecking_bitset_mrv_degreesequenceprune_ac1_ind","forwardchecking_bitset_mrv_degreesequenceprune_countingalldifferent_ind"
+,"forwardchecking_bitset_mrv_degreesequenceprune_ind","forwardchecking_degreeprune_ind","forwardchecking_degreesequenceprune_ind","forwardchecking_ind"
+,"forwardchecking_mrv_degreeprune_ind","lazyforwardchecking_degreeprune_ind","lazyforwardchecking_degreesequenceprune_ind","lazyforwardchecking_ind"
+,"lazyforwardchecking_low_bitset_degreeprune_ind","lazyforwardchecking_low_bitset_degreesequenceprune_ind","lazyforwardchecking_low_degreeprune_ind"
+,"lazyforwardchecking_low_degreesequenceprune_ind","lazyforwardchecking_low_ind","lazyforwardchecking_low_parent_degreeprune_ind"
+,"lazyforwardchecking_low_parent_ind","lazyforwardchecking_parent_degreeprune_ind"
+,"lazyforwardchecking_parent_degreesequenceprune_ind","lazyforwardchecking_parent_ind"
+,"lazyforwardcheckingbackjumping_low_bitset_degreeprune_ind","lazyforwardcheckingbackjumping_low_bitset_degreesequenceprune_ind"};
+
+
+std::unordered_set<std::string> valid_alg_args_mrv = {
+  "forwardchecking_bitset_mrv_degreeprune_ac1_ind","forwardchecking_bitset_mrv_degreeprune_countingalldifferent_ind"
+  ,"forwardchecking_bitset_mrv_degreeprune_ind","forwardchecking_bitset_mrv_degreesequenceprune_ac1_ind","forwardchecking_bitset_mrv_degreesequenceprune_countingalldifferent_ind"
+  ,"forwardchecking_bitset_mrv_degreesequenceprune_ind"
+};
+
+std::unordered_set<std::string> graph_types_args = {
+  "adjacency_list","adjacency_listmat"
+};
+
+
+std::unordered_set<std::string> tag_types_args = {
+  "bidirectional_tag","directed_tag","undirected_tag"
+};
