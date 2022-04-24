@@ -1,15 +1,13 @@
-#include <Rcpp.h>
+
 #include <vector>
 #include <string>
-using namespace Rcpp;
 #include <Rcpp.h>
-
+using namespace Rcpp;
 #include <iostream>
 #include <cstdint>
-#include <string>
 #include <fstream>
 #include <vector>
-#include "modString.h"
+#include "helpers/import_sics.h"
 
 
 
