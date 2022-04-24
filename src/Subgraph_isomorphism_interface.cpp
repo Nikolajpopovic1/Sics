@@ -7,8 +7,11 @@ using namespace Rcpp;
 #include <cstdint>
 #include <fstream>
 #include <vector>
-#include "helpers/import_sics.h"
-
+#include "helpers/alg_set_options.h"
+#include "headers/import_sics.h"
+#include "helpers/create_graph.h"
+#include "helpers/check_defaults.h"
+#include "helpers/all_algorithms.h"
 
 
 // This is a simple function using Rcpp that creates an R list
@@ -50,7 +53,87 @@ std::vector<std::vector<int>> subgraph_isomorphism_interface(
     int match_vertex,
     bool degreesorted
 ) {
+
   std::vector<std::vector<int>> isomorphisms;
+
+  if(pattern.size() > match.size())return isomorphisms;
+
+  std::string type_of_graph = check_type_graph(std::string(type_graph));
+  std::string tag_format = check_tag_format(std::string(direction));
+  std::string algorithm_type = check_algorithm(std::string(algorithm));
+
+  if(tag_format == "undirected_tag" && type_of_graph == "adjacency_listmat"){
+
+    listmat_undirected g = sics::create_graph<listmat_undirected>(pattern_vertex,pattern,vertex_atributes_g1);
+    listmat_undirected h = sics::create_graph<listmat_undirected>(match_vertex,match,vertex_atributes_g2);
+
+    if(degreesorted==true){
+
+      auto g1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::undirected_tag, std::string>(g);
+      auto h1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::undirected_tag, std::string>(h);
+
+      return call_algorithm(g1, h1,algorithm_type,constraint,isomorphisms);
+    }
+
+    return call_algorithm(g, h,algorithm_type,constraint,isomorphisms);
+
+  }else if(tag_format == "bidirectional_tag" && type_of_graph == "adjacency_listmat"){
+
+    listmat_bidirectional g = sics::create_graph<listmat_bidirectional>(pattern_vertex,pattern,vertex_atributes_g1);
+    listmat_bidirectional h = sics::create_graph<listmat_bidirectional>(match_vertex,match,vertex_atributes_g2);
+
+    if(degreesorted==true){
+
+      auto g1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::bidirectional_tag, std::string>(g);
+      auto h1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::bidirectional_tag, std::string>(h);
+
+      return call_algorithm(g1, h1,algorithm_type,constraint,isomorphisms);
+
+    }
+
+    return call_algorithm(g, h,algorithm_type,constraint,isomorphisms);
+
+  }else if(tag_format == "directed_tag" && type_of_graph == "adjacency_listmat"){
+
+    return isomorphisms;
+
+  }else if(tag_format == "bidirectional_tag" && type_of_graph == "adjacency_list"){
+
+    list_bidirectional g = sics::create_graph<list_bidirectional>(pattern_vertex,pattern,vertex_atributes_g1);
+    list_bidirectional h = sics::create_graph<list_bidirectional>(match_vertex,match,vertex_atributes_g2);
+
+    if(degreesorted==true){
+
+      auto g1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::bidirectional_tag, std::string>(g);
+      auto h1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::bidirectional_tag, std::string>(h);
+
+      return call_algorithm(g1, h1,algorithm_type,constraint,isomorphisms);
+
+    }
+
+    return call_algorithm(g, h,algorithm_type,constraint,isomorphisms);
+
+  }else if(tag_format == "undirected_tag" && type_of_graph == "adjacency_list"){
+
+    list_undirected g = sics::create_graph<list_undirected>(pattern_vertex,pattern,vertex_atributes_g1);
+    list_undirected h = sics::create_graph<list_undirected>(match_vertex,match,vertex_atributes_g2);
+
+    if(degreesorted == true){
+
+      auto g1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::undirected_tag, std::string>(g);
+      auto h1 = sics::adjacency_degreesortedlistmat<uint16_t, sics::undirected_tag, std::string>(h);
+
+      return call_algorithm(g1, h1,algorithm_type,constraint,isomorphisms);
+
+    }
+
+    return call_algorithm(g, h,algorithm_type,constraint,isomorphisms);
+
+  }else if(tag_format == "directed_tag" && type_of_graph == "adjacency_list" && degreesorted == false){
+
+    return isomorphisms;
+
+  }
 
   return isomorphisms;
 }
