@@ -49,7 +49,6 @@ Subgraph_isomorphism <- function(
   vertex_color_g2_len <- length(vertex_color_g2);
   res  <-  subgraph_isomorphism_interface(pattern.vec, match.vec,algorithm,direction,vertex_color_g1,vertex_color_g2,graph_type,constraint,pattern_vertex,match_vertex,degsort)
   lapply(res, function(x)V(match.g)[x])
-  pattern.vec
-  x.mat
+  res
 }
 

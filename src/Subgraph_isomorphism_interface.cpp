@@ -129,7 +129,7 @@ std::vector<std::vector<int>> subgraph_isomorphism_interface(
 
     return call_algorithm(g, h,algorithm_type,constraint,isomorphisms);
 
-  }else if(tag_format == "directed_tag" && type_of_graph == "adjacency_list" && degreesorted == false){
+  }else if(tag_format == "directed_tag" && type_of_graph == "adjacency_list"){
 
     return isomorphisms;
 
@@ -137,3 +137,4 @@ std::vector<std::vector<int>> subgraph_isomorphism_interface(
 
   return isomorphisms;
 }
+
